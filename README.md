@@ -66,6 +66,27 @@ function UserProfile({ isLoading, user }) {
 - **Complex styles**: Elements with complex shapes (clip-path) or transforms might not be perfectly matched, though standard transforms usually trigger correct bounding boxes.
 - **Leaf Nodes**: The analyzer focuses on "leaf" content (text, images, inputs). Container divs usually aren't drawn unless they have specific backgrounds, to avoid clutter.
 
+
+## 👨‍💻 Author
+
+**Vedant**
+
+- Website: [vedant.dev](https://vedant.dev) (Placeholder)
+- GitHub: [@vedant](https://github.com/vedant) (Placeholder)
+- Twitter: [@vedant](https://twitter.com/vedant) (Placeholder)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check logic in `src/hooks/useSkeletonAnalyzer.ts` if you want to improve the heuristics.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
 ## 📄 License
 
-MIT
+Distributed under the MIT License. See `LICENSE` for more information.
+

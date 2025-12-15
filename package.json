@@ -28,7 +28,7 @@
     "auto",
     "ui"
   ],
-  "author": "",
+  "author": "Vedant",
   "license": "MIT",
   "dependencies": {
     "react": "^19.2.3",
