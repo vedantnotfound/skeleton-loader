@@ -1,142 +1,166 @@
 import React, { useState } from 'react';
 import './landing.css';
 import { AutoSkeleton } from './components/AutoSkeleton';
-import { TestProductPage } from './components/TestProductPage';
+import {
+    Zap,
+    Layout,
+    Settings,
+    Github,
+    Copy,
+    ArrowRight,
+    Box,
+    Check
+} from 'lucide-react';
 
 export default function LandingPage() {
     const [demoLoading, setDemoLoading] = useState(true);
+    const [copied, setCopied] = useState(false);
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText('npm install react-auto-skeleton-magic');
-        alert('Copied to clipboard!');
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
     };
 
     return (
         <div>
             <div className="container">
                 <header>
-                    <div className="logo">✨ AutoSkeleton</div>
+                    <div className="logo">
+                        <Box strokeWidth={2.5} />
+                        skeleton-magic
+                    </div>
                     <nav className="nav-links">
                         <a href="#features">Features</a>
-                        <a href="#demo">Demo</a>
-                        <a href="#docs">Docs</a>
-                        <a href="https://github.com/vedantnotfound/react-auto-skeleton-magic" target="_blank">GitHub</a>
+                        <a href="#demo">Playground</a>
+                        <a href="https://github.com/vedantnotfound/react-auto-skeleton-magic" target="_blank" rel="noreferrer">GitHub</a>
                     </nav>
                 </header>
 
                 <section className="hero">
                     <h1>
-                        Stop Building <br />
-                        <span>Skeleton Screens Manually</span>
+                        Instant skeleton<br />
+                        screens. No config.
                     </h1>
                     <p>
-                        Wrap your component. Get a perfect skeleton loader automatically.
-                        No config, no hardcoded shapes, just magic.
+                        Automatically analyze your component structure and generate
+                        pixel-perfect loading states. Minimal, fast, and magical.
                     </p>
-                    <div>
-                        <a href="#demo" className="btn">Try the Magic</a>
-                        <a href="https://github.com/vedantnotfound/react-auto-skeleton-magic" target="_blank" className="btn btn-secondary">Star on GitHub</a>
-                    </div>
-                </section>
 
-                <section className="install-section">
-                    <div className="code-block">
+                    <div className="btn-group">
+                        <a href="#demo" className="btn btn-primary">
+                            Try Demo <ArrowRight size={16} style={{ marginLeft: 8 }} />
+                        </a>
+                        <a href="https://github.com/vedantnotfound/react-auto-skeleton-magic" target="_blank" rel="noreferrer" className="btn btn-secondary">
+                            <Github size={18} style={{ marginRight: 8 }} /> Star on GitHub
+                        </a>
+                    </div>
+
+                    <div className="install-block" onClick={copyToClipboard}>
                         <span>npm install react-auto-skeleton-magic</span>
-                        <button className="copy-btn" onClick={copyToClipboard} title="Copy">
-                            📋
-                        </button>
+                        <div className="copy-icon" title="Copy">
+                            {copied ? <Check size={16} /> : <Copy size={16} />}
+                        </div>
                     </div>
                 </section>
 
                 <section id="demo" className="demo-section">
-                    <div className="demo-controls">
-                        <span className="toggle-label">Toggle State:</span>
-                        <button
-                            className="btn"
-                            style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
-                            onClick={() => setDemoLoading(!demoLoading)}
-                        >
-                            {demoLoading ? 'Show Content' : 'Show Skeleton'}
-                        </button>
-                    </div>
+                    <div className="demo-frame">
+                        <div className="demo-controls">
+                            <button className="toggle-btn" onClick={() => setDemoLoading(!demoLoading)}>
+                                {demoLoading ? 'Stop Loading' : 'Start Loading'}
+                            </button>
+                        </div>
 
-                    <div className="demo-card-wrapper" style={{ maxWidth: 1000, margin: '0 auto', background: 'white', borderRadius: 16 }}>
-                        {/* 
-                     We are using the TestProductPage component for the demo.
-                     We need to control its internal loading state from outside or modify it. 
-                     The TestProductPage controls its own state, let's just make a simple inline demo 
-                     OR wrapping a known layout here so we have full control.
-                     
-                     Actually, let's build a nice little profile card demo right here 
-                     to show it clearly.
-                 */}
-                        <AutoSkeleton loading={demoLoading}>
-                            <div className="demo-inner-content" style={{ padding: 40, color: '#333' }}>
-                                <div style={{ display: 'flex', gap: 20, marginBottom: 20 }}>
-                                    <img
-                                        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-                                        style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover' }}
-                                        alt="Avatar"
-                                    />
-                                    <div>
-                                        <h2 style={{ margin: '0 0 10px 0' }}>John Doe</h2>
-                                        <p style={{ margin: 0, color: '#666' }}>Senior Software Engineer at Tech Corp</p>
-                                        <div style={{ display: 'flex', gap: 10, marginTop: 10 }}>
-                                            <span style={{ background: '#eee', padding: '4px 8px', borderRadius: 4, fontSize: 12 }}>React</span>
-                                            <span style={{ background: '#eee', padding: '4px 8px', borderRadius: 4, fontSize: 12 }}>TypeScript</span>
-                                            <span style={{ background: '#eee', padding: '4px 8px', borderRadius: 4, fontSize: 12 }}>Three.js</span>
+                        <div style={{ maxWidth: 600, margin: '0 auto' }}>
+                            <AutoSkeleton loading={demoLoading}>
+                                <div style={{
+                                    border: '1px solid #333',
+                                    padding: 24,
+                                    borderRadius: 8,
+                                    background: '#0a0a0a',
+                                    display: 'flex',
+                                    gap: 24
+                                }}>
+                                    <div style={{
+                                        width: 100,
+                                        height: 100,
+                                        background: '#111',
+                                        borderRadius: '50%',
+                                        flexShrink: 0
+                                    }}>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1664575602276-acd073f104c1?q=80&w=200&auto=format&fit=crop"
+                                            style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }}
+                                            alt="Profile"
+                                        />
+                                    </div>
+
+                                    <div style={{ flex: 1 }}>
+                                        <h3 style={{ marginTop: 0, marginBottom: 8, fontSize: '1.5rem', color: '#fff' }}>Alex Morgan</h3>
+                                        <p style={{ color: '#888', fontSize: '0.9rem', margin: 0, marginBottom: 16 }}>
+                                            Product Designer @ Vercel. Crafting minimal interfaces and exploring 3D web experiences.
+                                        </p>
+
+                                        <div style={{ display: 'flex', gap: 12 }}>
+                                            <button style={{
+                                                background: '#fff',
+                                                color: '#000',
+                                                border: 'none',
+                                                padding: '8px 16px',
+                                                borderRadius: 4,
+                                                fontWeight: 600,
+                                                fontSize: '0.8rem'
+                                            }}>Follow</button>
+                                            <button style={{
+                                                background: 'transparent',
+                                                color: '#fff',
+                                                border: '1px solid #333',
+                                                padding: '8px 16px',
+                                                borderRadius: 4,
+                                                fontWeight: 600,
+                                                fontSize: '0.8rem'
+                                            }}>Message</button>
                                         </div>
                                     </div>
                                 </div>
-                                <p style={{ lineHeight: 1.6, color: '#444' }}>
-                                    John is a passionate developer who loves building tools that help other developers.
-                                    He specializes in frontend infrastructure and UI design. When he's not coding,
-                                    he enjoys hiking and photography.
-                                </p>
-                                <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <div style={{ display: 'flex', gap: 15 }}>
-                                        <span><b>240</b> Following</span>
-                                        <span><b>12.5k</b> Followers</span>
-                                    </div>
-                                    <button style={{
-                                        background: 'black',
-                                        color: 'white',
-                                        border: 'none',
-                                        padding: '10px 20px',
-                                        borderRadius: 8,
-                                        cursor: 'pointer'
-                                    }}>
-                                        Follow
-                                    </button>
-                                </div>
-                            </div>
-                        </AutoSkeleton>
+                            </AutoSkeleton>
+                        </div>
                     </div>
                 </section>
 
-                <section id="features" className="features">
-                    <div className="feature-card">
-                        <div className="feature-icon">⚡</div>
-                        <h3>Zero Configuration</h3>
-                        <p>Just wrap your component and it works. No need to define heights, widths, or shapes manually.</p>
-                    </div>
-                    <div className="feature-card">
-                        <div className="feature-icon">🎨</div>
-                        <h3>Matches Your UI</h3>
-                        <p>Automatically detects fonts, images, and buttons to create a skeleton that perfectly mirrors your layout.</p>
-                    </div>
-                    <div className="feature-card">
-                        <div className="feature-icon">🔧</div>
-                        <h3>Fully Customizable</h3>
-                        <p>Need specific tweaks? You can still override styles or behaviors if you need to.</p>
+                <section id="features" className="features-section">
+                    <div className="grid">
+                        <div className="feature-item">
+                            <div className="icon-box">
+                                <Zap size={24} />
+                            </div>
+                            <h3>Zero Config</h3>
+                            <p>Simply wrap your component. The library analyzes the DOM structure and generates skeletons automatically.</p>
+                        </div>
+                        <div className="feature-item">
+                            <div className="icon-box">
+                                <Layout size={24} />
+                            </div>
+                            <h3>Pixel Perfect</h3>
+                            <p>Matches your exact layout spacing, typography, and element sizing without manual tweaking.</p>
+                        </div>
+                        <div className="feature-item">
+                            <div className="icon-box">
+                                <Settings size={24} />
+                            </div>
+                            <h3>Customizable</h3>
+                            <p>Want to change the animation speed or color? Fully typed props for advanced use cases.</p>
+                        </div>
                     </div>
                 </section>
 
                 <footer>
-                    <p>
-                        Created with ❤️ by <a href="https://github.com/vedantnotfound" target="_blank">Vedant</a>.
-                        Released under MIT License.
-                    </p>
+                    <div className="logo" style={{ fontSize: '1rem', opacity: 0.8 }}>
+                        <Box size={20} />
+                        skeleton-magic
+                    </div>
+                    <p>© 2025 Vedant. MIT License.</p>
                 </footer>
             </div>
         </div>
