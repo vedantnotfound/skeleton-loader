@@ -1,0 +1,46 @@
+{
+  "name": "react-auto-skeleton-loader",
+  "version": "1.0.0",
+  "description": "Automatic skeleton loader generator for React",
+  "type": "module",
+  "main": "./dist/react-auto-skeleton-loader.umd.js",
+  "module": "./dist/react-auto-skeleton-loader.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-auto-skeleton-loader.mjs",
+      "require": "./dist/react-auto-skeleton-loader.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "skeleton",
+    "loader",
+    "auto",
+    "ui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}
