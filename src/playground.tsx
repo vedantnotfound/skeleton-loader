@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { TestProductPage } from './components/TestProductPage';
+import LandingPage from './LandingPage';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <TestProductPage />
+        <LandingPage />
     </React.StrictMode>
 );
