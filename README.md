@@ -69,10 +69,10 @@ function UserProfile({ isLoading, user }) {
 
 ## 👨‍💻 Author
 
-**Vedant Yengupatla **
+**Vedant Yengupatla**
 
 - Website: https://vedant-dev.netlify.app 
-- GitHub: [@vedantnotfound](https://github.com/vedant) 
+- GitHub: [@vedantnotfound](https://github.com/vedantnotfound) 
 
 
 ## 🤝 Contributing
