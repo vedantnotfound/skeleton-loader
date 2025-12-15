@@ -69,11 +69,11 @@ function UserProfile({ isLoading, user }) {
 
 ## 👨‍💻 Author
 
-**Vedant**
+**Vedant Yengupatla **
 
-- Website: [vedant.dev](https://vedant.dev) (Placeholder)
-- GitHub: [@vedant](https://github.com/vedant) (Placeholder)
-- Twitter: [@vedant](https://twitter.com/vedant) (Placeholder)
+- Website: https://vedant-dev.netlify.app 
+- GitHub: [@vedantnotfound](https://github.com/vedant) 
+
 
 ## 🤝 Contributing
 
